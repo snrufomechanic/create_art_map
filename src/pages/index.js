@@ -81,19 +81,25 @@ export default function Home() {
           onSubmit={handleSubmit}
           autoComplete="false"
         >
+          <h1 className={`text-5xl mb-5 font-bold`}>Create Art Map</h1>
+
           <label htmlFor="country" className="m-2">
             Country:
           </label>
           <input
+            className={`shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
             type="text"
             name="country"
             id="country"
+            placeholder="Country Name"
             values={country}
             onChange={(e) => setCountry(e.target.value)}
           />
           <label htmlFor="city">City:</label>
           <input
             type="text"
+            className={`shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
+            placeholder="City Name"
             name="city"
             id="city"
             values={city}
@@ -104,6 +110,8 @@ export default function Home() {
             type="text"
             name="district"
             id="district"
+            className={`shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
+            placeholder="District Name"
             values={district}
             onChange={(e) => setDistrict(e.target.value)}
           />
@@ -115,15 +123,15 @@ export default function Home() {
           >
             Submit
           </button>
+          <div className={`container  mx-auto`}>
+            <svg
+              id="map"
+              width="1000px"
+              height="1000px"
+              viewBox="0 0 1000 1000"
+            ></svg>
+          </div>
         </form>
-        <div className={`container  mx-auto`}>
-          <svg
-            id="map"
-            width="1000px"
-            height="1000px"
-            viewBox="0 0 1000 1000"
-          ></svg>
-        </div>
       </div>
     </main>
   );

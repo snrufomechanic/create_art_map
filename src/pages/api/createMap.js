@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     return result;
   };
 
-  const NOMINATIM_URL = "https://nominatim.openstreetmap.org/search.php";
+  const NOMINATIM_URL = "https://nominatim.openstreetmap.org/search";
   const OVERPASS_API_URL = "https://lz4.overpass-api.de/api/interpreter";
 
   const country = req.body.country;
@@ -19,18 +19,14 @@ export default async function handler(req, res) {
 
   const location = `${country}, ${city}, ${district}`;
   try {
-    var nominatimResponse = await fetch(
-      NOMINATIM_URL +
-        "?q=" +
-        country +
-        "+" +
-        city +
-        "+" +
-        district +
-        "&format=json"
-    );
+    var nominatimResponse = await axios.get(NOMINATIM_URL, {
+      params: {
+        q: location,
+        format: "json",
+      },
+    });
 
-    const data = await nominatimResponse.json();
+    const data = await nominatimResponse.data;
 
     if (data) {
       const latitude = parseFloat(data[0].lat);

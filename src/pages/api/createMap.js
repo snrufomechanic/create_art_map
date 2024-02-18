@@ -1,6 +1,5 @@
 import fetch from "node-fetch";
 import axios from "axios";
-const canvas = require("canvas");
 
 export default async function handler(req, res) {
   const zip = function (_points) {

@@ -1,4 +1,3 @@
-import fetch from "node-fetch";
 import axios from "axios";
 
 export default async function handler(req, res) {

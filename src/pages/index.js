@@ -76,7 +76,11 @@ export default function Home() {
       <div
         className={`flex min-h-screen flex-col items-center justify-between p-24 `}
       >
-        <form onSubmit={handleSubmit} autoComplete="false">
+        <form
+          className={`bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4`}
+          onSubmit={handleSubmit}
+          autoComplete="false"
+        >
           <label htmlFor="country" className="m-2">
             Country:
           </label>
@@ -104,15 +108,22 @@ export default function Home() {
             onChange={(e) => setDistrict(e.target.value)}
           />
           <button
+            className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
             type="submit"
             variant="contained"
             color="success"
-            className="m-2"
           >
             Submit
           </button>
         </form>
-        <svg id="map" width="100%" height="100%" viewBox="0 0 1000 1000"></svg>
+        <div className={`container  mx-auto`}>
+          <svg
+            id="map"
+            width="1000px"
+            height="1000px"
+            viewBox="0 0 1000 1000"
+          ></svg>
+        </div>
       </div>
     </main>
   );
